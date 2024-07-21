@@ -3,6 +3,7 @@ pipeline {
     tools {
         // Ensure the SonarQube scanner is available
         sonarQube 'SonarQube'
+        sonarScanner 'SonarQube' // Adjust to the correct tool name as per your Jenkins setup
     }
     environment {
         // SonarQube server URL and token can be defined as environment variables
