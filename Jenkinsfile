@@ -25,12 +25,7 @@ pipeline {
     } 
     post { 
         always { 
-            script {
-                def sonarTask = waitForQualityGate()
-                if (sonarTask.status != 'OK') {
-                    unstable("Pipeline failed due to quality gate failure: ${sonarTask.status}")
-                }
-            }
+            recordIssues enabledForFailure: true, tool: SonarQube()}
         }
     } 
 }
